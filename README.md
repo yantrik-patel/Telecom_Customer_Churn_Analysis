@@ -75,6 +75,8 @@ GROUP BY age_group
 ORDER BY SUM(Total_Revenue) desc
 ```
 ![Screenshot 2023-01-18 112410](https://user-images.githubusercontent.com/116425101/213095291-eb0dbd9c-888c-4a47-904c-3f7e206210e9.png)
+  
+From the above table, highest contributors to the revenue is 30 years and younger people. The customer from 31 to 60 years have similar revenue number. But as the age increases beyond 60 years, the revenue starts decreasing.  
 
 ### (5) Top 10 Cities with Highest number of customers  
 ```sql
@@ -86,7 +88,9 @@ GROUP BY City
 ORDER BY COUNT(Customer_ID) desc
 LIMIT 10
 ```  
-![Screenshot 2023-01-18 112855](https://user-images.githubusercontent.com/116425101/213096043-631c07f5-b846-4b5d-b5e7-629ec8c568c0.png)
+![Screenshot 2023-01-18 112855](https://user-images.githubusercontent.com/116425101/213096043-631c07f5-b846-4b5d-b5e7-629ec8c568c0.png)  
+  
+LA and San Diego are the cities having most of the customers.
 
 ### (6) Contract wise total customers and their respective revenues  
   
