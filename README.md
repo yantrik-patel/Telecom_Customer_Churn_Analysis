@@ -113,7 +113,29 @@ ORDER BY total_revenue desc
 
 The result on above table tells a very interesting story. If company can convert "Month to Month" customers into "One Year" or "Two Year" customer, they can be a good assets for driving the major part of revenue. The number of customers in each category shows that "One Year" and "Two Year" customers are lesser but contributes well in total revenue.  
 ***
-## B. Churn Analysis 
+## B. High Value Customers  
+A high value customer is the one who contribute to the **"80% of Total Revenue" and "80% of monthly recurring revenue"**  
+I have used Sub Query for this task and created a new table for High Value Customers  
+```sql
+CREATE TABLE high_value_customers
+(
+SELECT *
+FROM (
+	SELECT *,
+		sum(Recurring_Monthly_Revenue) OVER (ORDER BY Recurring_Monthly_Revenue desc) as running_recurring_monthly_revenue
+	FROM telecom_customer
+		) b
+WHERE running_recurring_monthly_revenue >= (SELECT 0.80 * sum(Recurring_Monthly_Revenue) FROM telecom_customer)
+AND Customer_ID IN (
+			SELECT Customer_ID
+			FROM (
+				SELECT
+					*,
+					sum(Total_Revenue) OVER (ORDER BY Total_Revenue desc) as running_total_revenue
+				FROM telecom_customer) a
+				WHERE running_total_revenue >= (SELECT 0.80 * sum(Total_Revenue) FROM telecom_customer))
+)
+```
 
 
 
