@@ -136,8 +136,11 @@ AND Customer_ID IN (
 				WHERE running_total_revenue >= (SELECT 0.80 * sum(Total_Revenue) FROM telecom_customer))
 )
 ```
+I have extracted the data of High Value customers and Loaded it into Tableau for visualization. Following is the screenshot.  
 
+![Screenshot 2023-02-15 115202](https://user-images.githubusercontent.com/116425101/218949572-62ed0b98-2e4f-4d58-81d5-ae4c90a074bc.png)
 
+Interactive Tableau Dashboard [Link](https://public.tableau.com/app/profile/yantrik.patel/viz/Telecom_Customer_Churn_Analysis/Dashboard1) 
 
 
 
